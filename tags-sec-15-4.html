@@ -1,0 +1,76 @@
+                                            <section class="tags-sec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        @if(!empty($store['locality']))
+        <div class="some-tags">
+          <div class="tags-heading d-flex align-items-center mb-2">
+            <img src="https://locowiznewdev.s3.ap-south-1.amazonaws.com/locomedia/mahendras/gps.svg" alt="">
+            <h4 class="mb-0 ms-1">$nearbylocality</h4>
+          </div>
+          <hr>
+          <div class="card mb-4 nearby">
+            <div class="card-body">
+              <ul>
+                <li>
+                  <span>{{ $store['locality'] ?? "" }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        @endif
+
+        <div class="some-tags">
+          <!-- bCateg -->
+          @if(!empty($blogsdata) && !empty($blogsdata[0]['category_name']))
+          <div class="tags-heading d-flex align-items-center mb-2">
+            <img src="https://locowiznewdev.s3.ap-south-1.amazonaws.com/locomedia/mahendras/grid.svg" alt="">
+            <h4 class="mb-0 ms-1">$categories</h4>
+          </div>
+          <hr>
+          <div class="card mb-4 category">
+            <div class="card-body">
+              <ul>
+                @foreach($blogsdata as $row)
+                <li>
+                  <a>{{
+                    $row['category_name'] ?? "" }}</a>
+                </li>
+                @endforeach
+
+              </ul>
+            </div>
+          </div>
+          @endif
+        </div>
+
+        <div class="some-tags">
+          <!-- blogsdata -->
+          @if(!empty($blogsdata) && !empty($blogsdata[0]['tag_name']))
+          <div class="tags-heading d-flex align-items-center mb-2">
+            <img src="https://locowiznewdev.s3.ap-south-1.amazonaws.com/locomedia/mahendras/tags-icon.svg" alt="">
+            <h4 class="mb-0 ms-1">$tags</h4>
+          </div>
+          <hr>
+          <div class="card mb-4 tags">
+            <div class="card-body">
+              <ul>
+                @foreach($blogsdata as $row)
+                <li>
+                  <a>{{ $row['tag_name'] ?? "" }}</a>
+                </li>
+                @endforeach
+
+
+              </ul>
+            </div>
+          </div>
+          @endif
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+                                        
